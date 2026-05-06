@@ -9,9 +9,9 @@ body {
 
 /* NAV BAR */
 nav {
-  position: fixed;
+  position: relative;
   top: 0;
-  width: 100%;
+  width: auto;
   background: #6c63ff;
   display: flex;
   justify-content: center;
@@ -77,7 +77,6 @@ textarea:focus {
 
 /* BUTTONS */
 button {
-  width: 100%;
   padding: 10px;
   border-radius: 10px;
   border: none;
@@ -87,7 +86,6 @@ button {
   cursor: pointer;
   transition: 0.2s;
 }
-
 button:hover {
   background: #574fd6;
 }
@@ -154,4 +152,62 @@ li button:hover {
 
 .crisis-box h2 {
   color: #d00000;
+}
+
+/* HOME PAGE */
+.main-title {
+  font-size: 36px;
+  text-align: center;
+  color: #6c63ff;
+  margin-top: 20px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.home-buttons button {
+  font-size: 18px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #6c63ff;
+}
+
+.home-buttons button:hover {
+  background: #574fd6;
+  transform: scale(1.02);
+}
+#homePage,
+#journalPage,
+#moodPage,
+#copingPage {
+  display: none;
+  width: 100%;
+}
+.affirmations-list {
+  padding: 0;
+}
+
+.affirmations-list li {
+  background: #fff4d6;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 5px solid #ffcc00;
+}
+
+.affirmation-display {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: #6c63ff;
 }

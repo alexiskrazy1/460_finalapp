@@ -66,9 +66,7 @@ function deleteEntry(index) {
 /* -------- NAVIGATION (FIXED) -------- */
 
 function showPage(pageId) {
-  console.log("Switching to:", pageId); // DEBUG
-
-  const pages = ["journalPage", "moodPage", "copingPage"];
+ const pages = ["homePage", "journalPage", "moodPage", "copingPage", "affirmationsPage"];
 
   pages.forEach(id => {
     const el = document.getElementById(id);
@@ -78,7 +76,6 @@ function showPage(pageId) {
   const active = document.getElementById(pageId);
   if (active) active.style.display = "block";
 }
-
 /* -------- MOOD -------- */
 
 function setMood(selectedMood) {
@@ -93,18 +90,46 @@ function loadMood() {
   const moodText = document.getElementById("todayMood");
   if (moodText) moodText.textContent = mood;
 }
+const affirmations = [
+  "I am doing my best, and that is enough.",
+  "I am strong and capable.",
+  "I deserve peace and happiness.",
+  "I can get through difficult moments.",
+  "I am growing every day.",
+  "I am worthy of love and respect.",
+  "I choose to focus on what I can control.",
+  "I am proud of myself."
+];
 
+window.showRandomAffirmation = function () {
+  const affirmations = [
+    "I am doing my best, and that is enough.",
+    "I am strong and capable.",
+    "I deserve peace and happiness.",
+    "I can get through difficult moments.",
+    "I am growing every day.",
+    "I am worthy of love and respect.",
+    "I choose to focus on what I can control.",
+    "I am proud of myself."
+  ];
+
+  const random = affirmations[Math.floor(Math.random() * affirmations.length)];
+  document.getElementById("affirmationDisplay").textContent = random;
+};
 /* -------- INIT -------- */
 
-window.onload = function () {
-  console.log("Page fully loaded");
 
-  renderEntries();
-  loadMood();
-  showPage("journalPage");
+window.showPage = function(pageId) {
+  const pages = ["homePage", "journalPage", "moodPage", "copingPage", "affirmationsPage"];
 
-  // 🔥 Make functions global (guaranteed fix for your issue)
-  window.showPage = showPage;
-  window.addEntry = addEntry;
-  window.setMood = setMood;
+  pages.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = "none";
+  });
+
+  document.getElementById(pageId).style.display = "block";
+};
+
+window.onload = function() {
+  showPage("homePage");
 };

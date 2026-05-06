@@ -3,78 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mental Health Journal</title>
+  <title>Mending The Mind</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
-  <nav>
-    <button type="button" onclick="showPage('journalPage')">Journal</button>
-   <button type="button" onclick="showPage('moodPage')">Mood Tracker</button>
-   <button type="button" onclick="showPage('copingPage')">Coping Skills</button>
-  </nav>
+<div class="container">
 
-  <div class="container">
+  <!-- HOME -->
+  <div id="homePage">
+    <h1 class="main-title">Mending The Mind</h1>
+    <p class="subtitle">A space to reflect, track, and care for yourself</p>
 
-    <!-- JOURNAL PAGE -->
-    <div id="journalPage">
-      <h1>Mental Health Journal</h1>
-      <textarea id="entryInput" placeholder="What's on your mind today?"></textarea>
-      <button onclick="addEntry()">Save Entry</button>
-
-      <h2>Your Entries</h2>
-      <ul id="entriesList"></ul>
+    <div class="home-buttons">
+      <button onclick="showPage('journalPage')">📝 Journal</button>
+      <button onclick="showPage('moodPage')">😊 Mood Tracker</button>
+      <button onclick="showPage('copingPage')">🧩 Coping Skills</button>
+      <button onclick="showPage('affirmationsPage')">💬 Positive Affirmations</button>
     </div>
-
-    <!-- MOOD TRACKER PAGE -->
-    <div id="moodPage" style="display:none;">
-      <h1>Mood Tracker</h1>
-      <p>How are you feeling today?</p>
-
-      <div class="mood-buttons">
-        <button onclick="setMood('😊 Happy')">😊</button>
-        <button onclick="setMood('😐 Okay')">😐</button>
-        <button onclick="setMood('😔 Sad')">😔</button>
-        <button onclick="setMood('😡 Angry')">😡</button>
-        <button onclick="setMood('😰 Anxious')">😰</button>
-      </div>
-
-      <h2>Today's Mood</h2>
-      <p id="todayMood">No mood selected</p>
-    </div>
-
-    <!-- COPING SKILLS PAGE -->
-    <div id="copingPage" style="display:none;">
-      <h1>Coping Skills</h1>
-
-      <ul class="coping-list">
-        <li>📖 Reading</li>
-        <li>🎨 Drawing</li>
-        <li>🚶 Walking</li>
-        <li>🫁 Deep breaths</li>
-        <li>😴 Napping</li>
-        <li>🍬 Chewing gum</li>
-        <li>📞 Calling a trusted person</li>
-        <li>🆘 Calling the crisis line</li>
-      </ul>
-
-      <div class="crisis-box">
-        <h2>Need immediate help?</h2>
-        <p><strong>Call or text 988</strong></p>
-        <p>National Suicide & Crisis Lifeline</p>
-      </div>
-    </div>
-
   </div>
 
-<!--
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
-    }
-  </script>
-  -->
-  <script src="./app.js"></script>
+  <!-- JOURNAL -->
+  <div id="journalPage" style="display:none;">
+    <button onclick="showPage('homePage')">⬅ Back</button>
+    <h1>Mental Health Journal</h1>
+    <textarea id="entryInput" placeholder="What's on your mind today?"></textarea>
+    <button onclick="addEntry()">Save Entry</button>
+    <ul id="entriesList"></ul>
+  </div>
+
+  <!-- MOOD -->
+  <div id="moodPage" style="display:none;">
+    <button onclick="showPage('homePage')">⬅ Back</button>
+    <h1>Mood Tracker</h1>
+
+    <div class="mood-buttons">
+      <button onclick="setMood('😊 Happy')">😊</button>
+      <button onclick="setMood('😐 Okay')">😐</button>
+      <button onclick="setMood('😔 Sad')">😔</button>
+      <button onclick="setMood('😡 Angry')">😡</button>
+      <button onclick="setMood('😰 Anxious')">😰</button>
+    </div>
+
+    <p id="todayMood">No mood selected</p>
+  </div>
+
+  <!-- COPING -->
+  <div id="copingPage" style="display:none;">
+    <button onclick="showPage('homePage')">⬅ Back</button>
+    <h1>Coping Skills</h1>
+    <ul class="coping-list">
+      <li>Reading</li>
+      <li>Drawing</li>
+      <li>Walking</li>
+      <li>Deep breaths</li>
+      <li>Napping</li>
+      <li>Chewing gum</li>
+      <li>Calling a trusted person</li>
+      <li>Call 988 if needed</li>
+    </ul>
+  </div>
+
+  <!-- AFFIRMATIONS -->
+  <div id="affirmationsPage" style="display:none;">
+    <button onclick="showPage('homePage')">⬅ Back</button>
+    <h1>Positive Affirmations</h1>
+
+    <button onclick="showRandomAffirmation()">✨ Random Affirmation</button>
+    <p id="affirmationDisplay"></p>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+
 </body>
 </html>
