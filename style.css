@@ -211,3 +211,10 @@ li button:hover {
   text-align: center;
   color: #6c63ff;
 }
+#homePage,
+#journalPage,
+#moodPage,
+#copingPage,
+#affirmationsPage {
+  width: 100%;
+}
